@@ -306,7 +306,7 @@ const Register = () => {
               />
               {confirmPasswordError && <p className="text-danger">{confirmPasswordError}</p>}
             </div>
-            <button onClick={handleSubmit} className="btn btn-primary btn-block w-100">Register</button>
+            <button onClick={handleSubmit} className="btn btn-danger w-100">Register</button>
           </form>
           <p className="text-center mt-4">
             Already have an account? <Link to="/login" className="login-link">Login</Link>
