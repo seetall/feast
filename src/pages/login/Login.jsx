@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
 import { toast } from 'react-toastify';
+import 'bootstrap/dist/css/bootstrap.min.css'; 
 import { loginUserApi } from '../../apis/Api';
+import './Login.css';
+import { Link } from 'react-router-dom';
 
 const Login = () => {
   const [email, setEmail] = useState('');
@@ -48,23 +51,28 @@ const Login = () => {
 
   return (
     <div className="container">
-      <div className="row justify-content-center">
-        <div className="col-md-6">
-          <div className="login-frame p-4">
-            <h1 className="text-center mb-4">Welcome back!</h1>
-            <form>
-              <div className="form-group">
-                <label>Email Address:</label>
+      <div className="login-container">
+        <div className="login-image">
+          <img src="https://i.pinimg.com/564x/64/5f/ef/645fef09c3f45b7d94d316b6493594b1.jpg" alt="Login Visual" />
+        </div>
+        <div className="login-frame">
+          <h1 className="text-center mb-4">Welcome back to Feast Together!</h1>
+          <form>
+            <div className="form-group">
+              <label>Email Address:</label>
+              <div>
                 <input
                   onChange={(e) => setEmail(e.target.value)}
-                  type="text"
+                  type="email"
                   className="form-control"
                   placeholder="Enter your email address"
                 />
                 {emailError && <p className="text-danger">{emailError}</p>}
               </div>
-              <div className="form-group">
-                <label>Password:</label>
+            </div>
+            <div className="form-group">
+              <label>Password:</label>
+              <div>
                 <input
                   onChange={(e) => setPassword(e.target.value)}
                   type="password"
@@ -73,11 +81,14 @@ const Login = () => {
                 />
                 {passwordError && <p className="text-danger">{passwordError}</p>}
               </div>
-              <button onClick={handleLogin} className="btn btn-danger btn-block">
-                Login
-              </button>
-            </form>
-          </div>
+            </div>
+            <button onClick={handleLogin} className="btn btn-danger w-100">
+              Login
+            </button>
+          </form>
+          <p className="text-center mt-4">
+            Already have an account? <Link to="/register" className="login-link">Sign Up</Link>
+          </p>
         </div>
       </div>
     </div>
